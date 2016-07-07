@@ -1,80 +1,71 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://app.apiary.io/majesticthai17
 
 # MajesticThai
 
-Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
 
-### List All Questions [GET]
+## Menu Collection [/dishes]
+
+### List of Menu Items [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
+                "dishes": [
+                  {
+                    'id': '01', 
+                    'name': 'Pad Thai', 
+                    'description': 'yummy yummy yummy for your tummy tummy tummy', 
+                    'price': '820'
+                  },
+                  {
+                    'id': '02', 
+                    'name': 'Pineapple Fried Rice', 
+                    'description': 'sure it’ fattening but it tastes sooooo good!', 
+                    'price': '925'
+                  },
+                  {
+                      'id': '03', 
+                      'name': 'Thai Nee Dish', 
+                      'description': 'not much for you to eat but it is spicy to keep remembering long time', 
+                      'price': '795'
+                  }
                 ]
             }
         ]
 
-### Create a New Question [POST]
+## Orders Collection [/orders]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### List of Orders [GET]
 
-+ Request (application/json)
++ Response 200 (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
+        [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+                "orders": [
+                  {
+                    'id': '01', 
+                    'username': 'Tommy Tutone', 
+                    'order-time': '2016-02-05T08:40:51.620Z', 
+                    'order-total': '1220',
+                    'order-items': ['Pad Thai', 'Pineapple Fried Rice', 'Sprite']
+                  },
+                  {
+                    'id': '02', 
+                    'username': 'Charlie Brown', 
+                    'order-time': '2016-02-05T08:43:22.620Z', 
+                    'order-total': '1150',
+                    'order-items': ['Pineapple Fried Rice', 'Iced Tea']
+                  },
+                  {
+                    'id': '03', 
+                    'username': 'Hillary Clinton', 
+                    'order-time': '2016-02-05T08:49:40.620Z', 
+                    'order-total': '1430',
+                    'order-items': ['Thai Nee Dish', 'Pad Thai', 'Thai Beer']
+                  }
                 ]
             }
+        ]
